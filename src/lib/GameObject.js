@@ -26,12 +26,13 @@ class GameObject {
     }
     /**
      * 
-     * @param {CanvasRenderingContext2D} ctx 
+     * @param {CanvasRenderingContext2D|null} ctx 
      */
     update(ctx) {
         this.ctx = ctx;
         this.draw();
-
+        this.x += this.velocity.x;
+        this.y += this.velocity.y;
     }
 }
 
