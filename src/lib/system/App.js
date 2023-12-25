@@ -10,13 +10,13 @@ import { PixiPlugin } from "gsap/PixiPlugin";
 
 class Application {
   /**
-   * @param {{element:string,scenes:Record<string,new()=>Scene>,loader:string[]}} config 
+   * @param {import("../game/Config")} config 
    */
   async run(config) {
     gsap.registerPlugin(PixiPlugin);
     PixiPlugin.registerPIXI(PIXI);
 
-    this.app = new PIXI.Application({ resizeTo: window });
+    this.app = new PIXI.Application({ resizeTo: window, eventMode: "passive" });
 
 
     this.config = config;

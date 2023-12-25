@@ -7,10 +7,7 @@
           "name": "bg",
           "srcs": "sprites/bg.png"
         },
-        {
-          "name": "blue",
-          "srcs": "sprites/blue.png"
-        },
+
         {
           "name": "field",
           "srcs": "sprites/field.png"
@@ -18,6 +15,10 @@
         {
           "name": "field-selected",
           "srcs": "sprites/field-selected.png"
+        },
+        {
+          "name": "blue",
+          "srcs": "sprites/blue.png"
         },
         {
           "name": "green",
