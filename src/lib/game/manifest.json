@@ -1,0 +1,17 @@
+{
+  "bundles": [
+    {
+      "name": "game-screen",
+      "assets": [
+        {
+          "name": "bg",
+          "srcs": "sprites/robgbot.png"
+        },
+        {
+          "name": "bg",
+          "srcs": "sprites/bg.png"
+        }
+      ]
+    }
+  ]
+}

@@ -1,51 +1,26 @@
 <script>
-  import { GameObject } from "$lib/GameObject";
-  import { GameManager } from "$lib";
+  import { App } from "$lib/system/App";
+  import { Game } from "$lib/game/Game";
   import { onMount } from "svelte";
-  /**
-   * @type {HTMLCanvasElement}
-   */
-  let canv;
-
-  /**
-   * @type {GameManager}
-   */
-  let manager;
-  let frameKey = -1;
+  const sprites = import.meta.glob("$lib/sprites/*.png");
   onMount(() => {
     // @ts-ignore
-    const context = canv.getContext("2d");
-    if (context) {
-      canv.width = innerWidth;
-      canv.height = innerHeight;
-      manager = new GameManager(context);
-      Start();
-
-      //   const player = new GameObject({
-      //     x: canv.width / 2,
-      //     y: canv.height / 2,
-      //     color: "blue",
-      //     radius: 20,
-      //     velocity: { x: 0, y: 0 },
-      //   });
-      //   player.update(context);
-    }
+    // console.log(Object.keys(sprites).map((s) => s.replace("/src/lib", "")));
+    App.run({
+      element: "wrapper",
+      loader: Object.keys(sprites).map((s) => s.replace("/src/lib", "")),
+      scenes: {
+        Game,
+      },
+    });
   });
-  function Start() {
-    frameKey = requestAnimationFrame(animate);
-  }
-
-  function animate() {
-    frameKey = requestAnimationFrame(animate);
-    manager?.Animate();
-  }
 </script>
 
-<div class="wrapper h-screen w-screen">
-  <canvas
+<div class="wrapper h-screen w-screen" id="wrapper">
+  <!-- <canvas
     class="h-full w-full"
     bind:this={canv}
     on:click={(ev) => manager.AddProjectile(ev.clientX, ev.clientY)}
   >
-  </canvas>
+  </canvas> -->
 </div>

@@ -1,0 +1,45 @@
+{
+  "bundles": [
+    {
+      "name": "game-screen",
+      "assets": [
+        {
+          "name": "bg",
+          "srcs": "sprites/bg.png"
+        },
+        {
+          "name": "blue",
+          "srcs": "sprites/blue.png"
+        },
+        {
+          "name": "field",
+          "srcs": "sprites/field.png"
+        },
+        {
+          "name": "field-selected",
+          "srcs": "sprites/field-selected.png"
+        },
+        {
+          "name": "green",
+          "srcs": "sprites/green.png"
+        },
+        {
+          "name": "orange",
+          "srcs": "sprites/orange.png"
+        },
+        {
+          "name": "pink",
+          "srcs": "sprites/pink.png"
+        },
+        {
+          "name": "red",
+          "srcs": "sprites/red.png"
+        },
+        {
+          "name": "yellow",
+          "srcs": "sprites/yellow.png"
+        }
+      ]
+    }
+  ]
+}
