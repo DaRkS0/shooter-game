@@ -13,6 +13,10 @@ export class GameManager {
          * @type {GameObject[]}
          */
         this.Projectiles = [];
+        /**
+         * @type {GameObject[]}
+         */
+        this.Enemies = [];
         this.SpawnPlayer();
     }
 
@@ -62,6 +66,12 @@ export class GameManager {
             Projectile.update(this.ctx);
             this.Projectiles.push(Projectile);
         }
+    }
+    SpawnEnemies() {
+        //TODO
+    }
+    AddEnemy() {
+        //TODO
     }
     Animate() {
         this.clear();
