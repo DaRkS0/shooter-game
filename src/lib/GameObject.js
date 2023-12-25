@@ -34,6 +34,15 @@ class GameObject {
         this.x += this.velocity.x;
         this.y += this.velocity.y;
     }
+
+    /**
+     * 
+     * @param {number} width 
+     * @param {number} height 
+     */
+    OutOfBounds(width, height) {
+        return this.x - this.radius > width || this.x < 0 || this.y - this.radius > height || this.y < 0
+    }
 }
 
 export { GameObject }
