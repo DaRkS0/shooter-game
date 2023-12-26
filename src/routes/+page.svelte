@@ -17,4 +17,7 @@
   });
 </script>
 
-<div class="wrapper h-screen w-screen"></div>
+<div
+  class="wrapper h-screen w-screen flex flex-col items-center justify-center"
+  id="parent"
+></div>
