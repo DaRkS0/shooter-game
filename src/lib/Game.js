@@ -143,6 +143,7 @@ export function Start() {
     type: Phaser.AUTO,
     scene: [Game],
     parent: "parent",
+    pixelArt: true,
     physics: {
       default: "arcade",
       arcade: {
