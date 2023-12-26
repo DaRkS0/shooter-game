@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { App } from "../system/App";
 import { Tools } from "../system/Tools";
 import { Tile } from "./Tile";

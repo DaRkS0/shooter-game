@@ -7,15 +7,12 @@ import { TileFactory } from "./TileFactory";
 export class Board {
     constructor() {
         this.container = new PIXI.Container();
-        /**
-         * @type {Field[]}
-         */
+
         this.fields = [];
-        // @ts-ignore
         this.rows = App.config.board.rows;
-        // @ts-ignore
         this.cols = App.config.board.cols;
-        this.create(); this.ajustPosition();
+        this.create();
+        this.ajustPosition();
     }
 
     create() {
@@ -23,20 +20,10 @@ export class Board {
         this.createTiles();
     }
 
-    createFields() {
-        for (let row = 0; row < this.rows; row++) {
-            for (let col = 0; col < this.cols; col++) {
-                this.createField(row, col);
-            }
-        }
-    }
     createTiles() {
         this.fields.forEach(field => this.createTile(field));
     }
-    /**
-     * 
-     * @param {Field} field 
-     */
+
     createTile(field) {
         const tile = TileFactory.generate();
         field.setTile(tile);
@@ -50,11 +37,17 @@ export class Board {
         return tile;
     }
 
-    /**
-     * 
-     * @param {number} row 
-     * @param {number} col 
-     */
+    getField(row, col) {
+        return this.fields.find(field => field.row === row && field.col === col);
+    }
+
+    createFields() {
+        for (let row = 0; row < this.rows; row++) {
+            for (let col = 0; col < this.cols; col++) {
+                this.createField(row, col);
+            }
+        }
+    }
     createField(row, col) {
         const field = new Field(row, col);
         this.fields.push(field);
@@ -69,11 +62,6 @@ export class Board {
         this.container.y = (window.innerHeight - this.height) / 2 + this.fieldSize / 2;
     }
 
-    /**
-     * 
-     * @param {Tile} tile1 
-     * @param {Tile} tile2 
-     */
     swap(tile1, tile2) {
         const tile1Field = tile1.field;
         const tile2Field = tile2.field;
@@ -83,15 +71,5 @@ export class Board {
 
         tile2Field.tile = tile1;
         tile1.field = tile2Field;
-    }
-
-    /**
-     * 
-     * @param {number} row 
-     * @param {number} col 
-     * @returns 
-     */
-    getField(row, col) {
-        return this.fields.find(field => field.row === row && field.col === col);
     }
 }

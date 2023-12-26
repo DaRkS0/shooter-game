@@ -1,12 +1,16 @@
 <script>
   import { App } from "$lib/system/App";
   import { Game } from "$lib/game/Game";
-  import { onMount } from "svelte";
+  import { onMount, afterUpdate } from "svelte";
   import Config from "$lib/game/Config";
   const sprites = import.meta.glob("$lib/sprites/*.png");
   onMount(() => {
     // @ts-ignore
     // console.log(Object.keys(sprites).map((s) => s.replace("/src/lib", "")));
+    //  App.run(Config);
+  });
+
+  afterUpdate(() => {
     App.run(Config);
   });
 </script>

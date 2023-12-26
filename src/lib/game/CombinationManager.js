@@ -1,11 +1,6 @@
-// @ts-nocheck
 import { App } from "../system/App";
 
 export class CombinationManager {
-    /**
-     * 
-     * @param {import("./Board").Board} board 
-     */
     constructor(board) {
         this.board = board;
     }
