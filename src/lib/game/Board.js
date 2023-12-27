@@ -87,9 +87,9 @@ export class Board {
         let bounds = this.container.getBounds();
         let kx = window.innerWidth / this.width;
         let ky = window.innerHeight / bounds.height;
-        console.log({
-            kx, ky
-        })
+        // console.log({
+        //     kx, ky
+        // })
         if (kx < 1.4) this.container.scale.set(kx * 0.9);
         else this.container.scale.set(1);
         // this.container.x = (window.innerWidth - this.container.width) / 2;

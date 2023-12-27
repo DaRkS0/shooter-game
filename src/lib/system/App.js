@@ -20,7 +20,7 @@ class Application {
 
 
     this.config = config;
-    this.app = new PIXI.Application({ resizeTo: document.querySelector(`#${this.config.element}`), eventMode: "passive" });
+    this.app = new PIXI.Application({ resizeTo: document.querySelector(`#${this.config.element}`), eventMode: "passive", resolution: window.devicePixelRatio, autoDensity: true });
     // @ts-ignore
     // document.body.appendChild(this.app.view);
     document.querySelector(`#${this.config.element}`)?.appendChild(this.app.view);
