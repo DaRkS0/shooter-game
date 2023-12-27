@@ -73,7 +73,7 @@ export class Board {
         this.container.addChild(field.sprite);
     }
 
-    ajustPosition() {
+    ajustPosition() {//hi
         this.fieldSize = this.fields[0].sprite.width;
         this.width = this.cols * this.fieldSize;
         this.height = this.rows * this.fieldSize;
