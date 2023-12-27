@@ -6,7 +6,8 @@ import { App } from "./App";
 export class ScenesManager {
     constructor() {
         this.container = new PIXI.Container();
-        this.container.interactive = true;
+        //this.container.interactive = true;
+        this.container.eventMode = "dynamic"
         /**
          * @type {Scene|null}
          */

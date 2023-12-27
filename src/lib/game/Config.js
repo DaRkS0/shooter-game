@@ -5,8 +5,8 @@ const Config = {
         Game,
     },
     board: {
-        rows: 6,
-        cols: 6,
+        rows: 8,
+        cols: 8,
     },
     tilesColors: ["blue", "green", "orange", "red", "pink", "yellow"],
     combinationRules: [[

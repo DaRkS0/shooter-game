@@ -16,16 +16,17 @@ class Application {
     gsap.registerPlugin(PixiPlugin);
     PixiPlugin.registerPIXI(PIXI);
 
-    this.app = new PIXI.Application({ resizeTo: window, eventMode: "passive" });
+
 
 
     this.config = config;
+    this.app = new PIXI.Application({ resizeTo: document.querySelector(`#${this.config.element}`), eventMode: "passive" });
     // @ts-ignore
     // document.body.appendChild(this.app.view);
     document.querySelector(`#${this.config.element}`)?.appendChild(this.app.view);
     this.scenes = new ScenesManager();
-    this.app.stage.interactive = true;
-
+    // this.app.stage.interactive = true;
+    this.app.stage.eventMode = "static"
     this.app.stage.addChild(this.scenes.container);
     await PIXI.Assets.init({ manifest: "manifest.json" });
     const asss = await PIXI.Assets.loadBundle('game-screen');

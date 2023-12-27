@@ -10,12 +10,25 @@ export class Game extends Scene {
         this.board.container.on('tile-touch-start', this.onTileClick.bind(this));
         this.combinationManager = new CombinationManager(this.board);
         this.removeStartMatches();
+        // this.repos();
+        // //App.app.stage.on("onWindowResize", this.repos = this.repos.bind(this));
+
+        // window.addEventListener("resize", this.repos = this.repos.bind(this))
     }
     createBackground() {
         this.bg = App.sprite("bg");
         this.bg.width = window.innerWidth;
         this.bg.height = window.innerHeight;
         this.container.addChild(this.bg);
+
+
+    }
+    repos() {
+        if (this.bg) {
+            console.log("RESIZE");
+            const bounds = this.bg.getBounds();
+            this.bg.position.set((window.innerWidth - bounds.width) * 0.5, (window.innerHeight - bounds.height) * 0.5);
+        }
     }
     /**
      * 

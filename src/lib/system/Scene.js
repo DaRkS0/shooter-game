@@ -4,7 +4,8 @@ import { App } from "./App";
 export class Scene {
     constructor() {
         this.container = new PIXI.Container();
-        this.container.interactive = true;
+        // this.container.interactive = true;
+        this.container.eventMode = "static";
         this.create();
         App.app?.ticker.add(this.update, this);
     }
