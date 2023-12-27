@@ -16,7 +16,7 @@ export class Board {
         // @ts-ignore
         this.cols = App.config.board.cols;
         this.create();
-        //this.ajustPosition();
+        this.ajustPosition();
         this.repos();
         //App.app.stage.on("onWindowResize", this.repos = this.repos.bind(this));
 
@@ -77,24 +77,24 @@ export class Board {
         this.fieldSize = this.fields[0].sprite.width;
         this.width = this.cols * this.fieldSize;
         this.height = this.rows * this.fieldSize;
-        this.container.x = (window.innerWidth - this.width) / 2 + this.fieldSize / 2;
-        this.container.y = (window.innerHeight - this.height) / 2 + this.fieldSize / 2;
+        //  this.container.x = (window.innerWidth - this.width) / 2 + this.fieldSize / 2;
+        // this.container.y = (window.innerHeight - this.height) / 2 + this.fieldSize / 2;
     }
     repos() {
 
         console.log("RESIZE");
 
         let bounds = this.container.getBounds();
-        let kx = window.innerWidth / bounds.width;
+        let kx = window.innerWidth / this.width;
         let ky = window.innerHeight / bounds.height;
         console.log({
             kx, ky
         })
-        if (kx < 2) this.container.scale.set(kx * 0.9);
+        if (kx < 1.4) this.container.scale.set(kx * 0.9);
         else this.container.scale.set(1);
         // this.container.x = (window.innerWidth - this.container.width) / 2;
         // this.container.y = (window.innerHeight - this.container.height) / 2;
-        this.fieldSize = this.fields[0].sprite.width;
+        //this.fieldSize = this.fields[0].sprite.width;
 
         bounds = this.container.getBounds();
         const test = bounds.width / this.cols
