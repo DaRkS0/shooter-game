@@ -82,7 +82,7 @@ export class Board {
     }
     repos() {
 
-        console.log("RESIZE");
+        //console.log("RESIZE");
 
         let bounds = this.container.getBounds();
         let kx = window.innerWidth / this.width;

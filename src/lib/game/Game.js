@@ -2,6 +2,7 @@ import { App } from "../system/App";
 import { Scene } from "../system/Scene";
 import { Board } from "./Board";
 import { CombinationManager } from "./CombinationManager";
+//https://github.com/anvoevodin/pixijs-match3-eva/blob/master/src/Game/index.js
 export class Game extends Scene {
     create() {
         this.createBackground();
@@ -13,7 +14,7 @@ export class Game extends Scene {
         // this.repos();
         // //App.app.stage.on("onWindowResize", this.repos = this.repos.bind(this));
 
-        // window.addEventListener("resize", this.repos = this.repos.bind(this))
+        window.addEventListener("resize", this.repos = this.repos.bind(this))
     }
     createBackground() {
         this.bg = App.sprite("bg");
@@ -25,7 +26,10 @@ export class Game extends Scene {
     }
     repos() {
         if (this.bg) {
-            console.log("RESIZE");
+            //  console.log("RESIZE");
+            //this.bg.propFrame(innerWidth, innerHeight, false);
+            this.bg.width = innerWidth;
+            this.bg.height = innerHeight;
             const bounds = this.bg.getBounds();
             this.bg.position.set((window.innerWidth - bounds.width) * 0.5, (window.innerHeight - bounds.height) * 0.5);
         }
