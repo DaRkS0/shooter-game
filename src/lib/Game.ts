@@ -23,6 +23,7 @@ export default class Game extends Phaser.Scene {
 		this.player.body.allowGravity = false;
 		this.player.setCollideWorldBounds(true);
 		this.cursor = this.input.keyboard?.createCursorKeys();
+
 		this.target.setMaxVelocity(0, 300);
 		this.player
 			.setSize(this.player.width * 0.75, this.player.height / 6)
@@ -37,6 +38,16 @@ export default class Game extends Phaser.Scene {
 			undefined,
 			this,
 		);
+		this.player.setInteractive({ draggable: true });
+		this.input.on("drag", (pointer, gameObject, dragX) => {
+			//  By clamping dragX we can keep it within
+			//  whatever bounds we need
+			dragX = Phaser.Math.Clamp(dragX, 0, 500);
+
+			//  By only applying the dragX we can limit the drag
+			//  to be horizontal only
+			gameObject.x = dragX;
+		});
 	}
 
 	update() {
